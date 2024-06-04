@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class NewAssessmentScreen extends StatelessWidget {
-const NewAssessmentScreen({ super.key });
+  static Widget builder(BuildContext context) {
+    return const NewAssessmentScreen();
+  }
+
+  const NewAssessmentScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Container();
   }
 }

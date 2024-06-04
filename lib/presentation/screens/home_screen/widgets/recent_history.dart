@@ -4,7 +4,7 @@ import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/data/models/history.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 import 'package:measure_ap/presentation/widgets/shadow_container.dart';
-import 'package:measure_ap/utils/convert_datetime.dart';
+import 'package:measure_ap/utils/date_conversion.dart';
 
 import 'section_header.dart';
 
@@ -20,10 +20,10 @@ class RecentHistory extends StatelessWidget {
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: dummyHistory.length, // Replace with your data length
+          itemCount: dummyAssessment.length, // Replace with your data length
           itemBuilder: (context, index) {
             return HistoryCard(
-              historyItem: dummyHistory[index],
+              assessmentItem: dummyAssessment[index],
             );
           },
         ),
@@ -33,8 +33,8 @@ class RecentHistory extends StatelessWidget {
 }
 
 class HistoryCard extends StatelessWidget {
-  final History historyItem;
-  const HistoryCard({super.key, required this.historyItem});
+  final Assessment assessmentItem;
+  const HistoryCard({super.key, required this.assessmentItem});
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +52,12 @@ class HistoryCard extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      historyItem.code,
+                      assessmentItem.cognitiveStatus,
                       style: body14Extrabold,
                     ),
                     ellipseContainer(blue700Color),
                     Text(
-                      historyItem.testType,
+                      assessmentItem.applicableMeasures,
                       style: body14Medium,
                     ),
                   ],
@@ -80,7 +80,7 @@ class HistoryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              historyItem.patientName,
+              assessmentItem.patientName,
               style: w600Type18,
             ),
             Row(
@@ -89,23 +89,23 @@ class HistoryCard extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      historyItem.gender,
+                      assessmentItem.gender,
                       style: boldType14,
                     ),
                     ellipseContainer(greyColor),
                     Text(
-                      '${historyItem.age} Years old',
+                      '${assessmentItem.age} Years old',
                       style: boldType14,
                     ),
                     ellipseContainer(greyColor),
                     Text(
-                      '${historyItem.weight} kg',
+                      '${assessmentItem.weight} kg',
                       style: boldType14,
                     ),
                   ],
                 ),
                 Text(
-                  formatDateToString(historyItem.date),
+                  formatDateToString(assessmentItem.date),
                   style: boldType14,
                 )
               ],

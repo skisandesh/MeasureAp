@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
+import 'package:measure_ap/utils/date_conversion.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dateList = getDayAndFormattedDate();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -38,11 +40,11 @@ class TopBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  'Monday',
+                  dateList[0],
                   style: mediumType12,
                 ),
                 Text(
-                  '16 April, 2024',
+                  dateList[1],
                   style: boldType16,
                 ),
               ],

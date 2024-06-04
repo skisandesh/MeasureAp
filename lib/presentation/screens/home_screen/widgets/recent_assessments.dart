@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/data/models/history.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
@@ -17,9 +18,9 @@ class RecentAssessments extends StatelessWidget {
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: dummyHistory.length, // Replace with your data length
+          itemCount: dummyAssessment.length, // Replace with your data length
           itemBuilder: (context, index) {
-            return AssessmentCard(historyItem: dummyHistory[index]);
+            return AssessmentCard(assessmentItem: dummyAssessment[index]);
           },
         ),
       ],
@@ -28,8 +29,8 @@ class RecentAssessments extends StatelessWidget {
 }
 
 class AssessmentCard extends StatelessWidget {
-  final History historyItem;
-  const AssessmentCard({super.key, required this.historyItem});
+  final Assessment assessmentItem;
+  const AssessmentCard({super.key, required this.assessmentItem});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class AssessmentCard extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  historyItem.code,
+                  assessmentItem.cognitiveStatus,
                   style: body14ExtraboldOrange,
                 ),
                 Container(
@@ -58,7 +59,7 @@ class AssessmentCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  historyItem.testType,
+                  assessmentItem.applicableMeasures,
                   style: body14MediumOrange,
                 ),
               ],
@@ -68,8 +69,10 @@ class AssessmentCard extends StatelessWidget {
         const SizedBox(
           width: 24,
         ),
-        CustomImageView(
-          imagePath: AssetsConstant.circleArrowIcon,
+        GestureDetector(
+          child: CustomImageView(
+            imagePath: AssetsConstant.circleArrowIcon,
+          ),
         ),
       ],
     ));

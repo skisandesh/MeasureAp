@@ -1,14 +1,14 @@
-class History {
-  final String code;
-  final String testType;
+class Assessment {
+  final String cognitiveStatus;
+  final String applicableMeasures;
   final String patientName;
   final String gender;
   final int age;
   final int weight;
   final DateTime date;
-  History({
-    required this.code,
-    required this.testType,
+  Assessment({
+    required this.cognitiveStatus,
+    required this.applicableMeasures,
     required this.patientName,
     required this.gender,
     required this.age,
@@ -17,26 +17,26 @@ class History {
   });
 }
 
-final List<History> dummyHistory = [
-  History(
-      code: "Z00.00",
-      testType: "Physical Examination",
+final List<Assessment> dummyAssessment = [
+  Assessment(
+      cognitiveStatus: "Z00.00",
+      applicableMeasures: "Physical Examination",
       patientName: "Emerson Calzeni",
       gender: "Male",
       age: 36,
       weight: 84,
       date: DateTime(2024,03,02)),
-  History(
-      code: "Z01.89",
-      testType: "Diagnostic Tests",
+  Assessment(
+      cognitiveStatus: "Z01.89",
+      applicableMeasures: "Diagnostic Tests",
       patientName: "Davis Culhane",
       gender: "Male",
       age: 41,
       weight: 84,
       date: DateTime(2024,03,01)),
-  History(
-      code: "Z01.89",
-      testType: "Diagnostic Tests",
+  Assessment(
+      cognitiveStatus: "Z01.89",
+      applicableMeasures: "Diagnostic Tests",
       patientName: "Davis Culhane",
       gender: "Male",
       age: 41,
