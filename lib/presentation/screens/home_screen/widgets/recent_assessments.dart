@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:measure_ap/constants/export_constants.dart';
-import 'package:measure_ap/data/models/history.dart';
+import 'package:measure_ap/data/models/new_assessment.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 import 'package:measure_ap/presentation/widgets/shadow_container.dart';
+import 'package:measure_ap/utils/navigator_service.dart';
 import 'section_header.dart';
 
 class RecentAssessments extends StatelessWidget {
@@ -70,6 +71,7 @@ class AssessmentCard extends StatelessWidget {
           width: 24,
         ),
         GestureDetector(
+          onTap: () => NavigatorService.pushNamed("/new_assessment", arguments: assessmentItem),
           child: CustomImageView(
             imagePath: AssetsConstant.circleArrowIcon,
           ),

@@ -3,6 +3,8 @@ import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/presentation/screens/home_screen/widgets/recent_assessments.dart';
 import 'package:measure_ap/presentation/screens/home_screen/widgets/recent_history.dart';
 import 'package:measure_ap/presentation/screens/home_screen/widgets/top_bar.dart';
+import 'package:measure_ap/presentation/widgets/custom_button.dart';
+import 'package:measure_ap/utils/navigator_service.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,9 +15,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0XFFF4F4F4),
-      body: SafeArea(
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: CustomButton(
+        onTap: () => NavigatorService.pushNamed("/new_assessment"),
+        color: black600Color,
+        hasShadow: true,
+        child: Center(
+          child: Text(
+            "+ New assignment",
+            style: mediumType18White,
+          ),
+        ),
+      ),
+      backgroundColor: const Color(0XFFF4F4F4),
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: kDefaultPadding,
@@ -27,6 +41,7 @@ class HomeScreen extends StatelessWidget {
                 RecentHistory(),
                 SizedBox(height: 20),
                 RecentAssessments(),
+                SizedBox(height: 60),
               ],
             ),
           ),
