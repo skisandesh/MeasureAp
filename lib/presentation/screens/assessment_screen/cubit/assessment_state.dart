@@ -2,7 +2,7 @@ part of 'assessment_cubit.dart';
 
 class AssessmentState {
   final List<Question> questions;
-  final List<dynamic> answers;
+  final List<bool> answers;
   final int currentIndex;
   final bool showResult;
 
@@ -15,7 +15,7 @@ class AssessmentState {
 
   AssessmentState copyWith({
     List<Question>? questions,
-    List<dynamic>? answers,
+    List<bool>? answers,
     int? currentIndex,
     bool? showResult
   }) {

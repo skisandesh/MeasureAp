@@ -5,11 +5,12 @@ part 'assessment_state.dart';
 
 class AssessmentCubit extends Cubit<AssessmentState> {
   AssessmentCubit(List<Question> questions)
-      : super(AssessmentState(questions: questions));
+      : super(AssessmentState(questions: questions, answers: List.filled(questions.length, false)));
 
   void answerQuestion(dynamic answer) {
     final currentIndex = state.currentIndex;
-    final answers = List.from(state.answers)..[currentIndex] = answer;
+    List<bool> answers = [...state.answers];
+    answers[currentIndex] = answer;
     emit(state.copyWith(answers: answers));
   }
 

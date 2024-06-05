@@ -4,9 +4,10 @@ import 'package:measure_ap/data/models/questions.dart';
 
 class MultipleCorrectIncorrectQuestion extends StatefulWidget {
   final MultipleCorrectIncorrectQuestionModel question;
-  final ValueChanged<List<bool>> onAnswer;
+  final ValueChanged<bool> onAnswer;
 
-  const MultipleCorrectIncorrectQuestion({super.key, 
+  const MultipleCorrectIncorrectQuestion({
+    super.key,
     required this.question,
     required this.onAnswer,
   });
@@ -19,11 +20,6 @@ class MultipleCorrectIncorrectQuestion extends StatefulWidget {
 class _MultipleCorrectIncorrectQuestionState
     extends State<MultipleCorrectIncorrectQuestion> {
   List<int> selectedIndex = [];
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _selectedAnswers = List.filled(widget.question.options.length, false);
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +44,7 @@ class _MultipleCorrectIncorrectQuestionState
               final isSelected = selectedIndex.contains(index);
               return GestureDetector(
                 onTap: () {
+                 
                   setState(() {
                     if (!isSelected) {
                       selectedIndex.add(index);
@@ -55,6 +52,10 @@ class _MultipleCorrectIncorrectQuestionState
                       selectedIndex.remove(index);
                     }
                   });
+                   widget.onAnswer(selectedIndex.length ==
+                          widget.question.correctIndexList.length &&
+                      selectedIndex.every((element) =>
+                          widget.question.correctIndexList.contains(element)));
                 },
                 child: Container(
                   padding: const EdgeInsets.all(16),
@@ -119,7 +120,8 @@ class ShowMoreText extends StatefulWidget {
   final String text;
   final int maxLines;
 
-  const ShowMoreText({super.key, 
+  const ShowMoreText({
+    super.key,
     required this.text,
     this.maxLines = 2,
   });
@@ -164,12 +166,7 @@ class _ShowMoreTextState extends State<ShowMoreText> {
             Text(
               _isExpanded
                   ? widget.text
-                  : '${widget.text.substring(
-                          0,
-                          tp.getOffsetBefore(tp
-                              .getPositionForOffset(
-                                  Offset(tp.width, tp.height * widget.maxLines))
-                              .offset))}...',
+                  : '${widget.text.substring(0, tp.getOffsetBefore(tp.getPositionForOffset(Offset(tp.width, tp.height * widget.maxLines)).offset))}...',
               style: mediumType14,
               textAlign: TextAlign.center,
             ),

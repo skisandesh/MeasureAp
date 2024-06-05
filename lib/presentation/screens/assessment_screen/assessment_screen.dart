@@ -59,7 +59,7 @@ class AssessmentScreen extends StatelessWidget {
                 const SizedBox(
                   height: 32,
                 ),
-                if (state.showResult) ConfirmResults(),
+                if (state.showResult) const ConfirmResults(),
                 if (question is CorrectIncorrectQuestionModel &&
                     !state.showResult)
                   CorrectIncorrectQuestion(

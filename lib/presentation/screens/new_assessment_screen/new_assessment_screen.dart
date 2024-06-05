@@ -92,7 +92,7 @@ class NewAssessmentBody extends StatelessWidget {
             builder: (context, state) {
               return CustomButton(
                 onTap: state.isStartButtonEnabled
-                    ? () => NavigatorService.pushNamed("/assessment")
+                    ? () => NavigatorService.pushNamed("/loading")
                     : () {},
                 color: state.isStartButtonEnabled ? black600Color : Colors.grey,
                 hasShadow: state.isStartButtonEnabled ? true : false,
@@ -134,7 +134,8 @@ class NewAssessmentBody extends StatelessWidget {
               selectedValue = null; // Ensure the selected value is always valid
             }
             return Container(
-              padding: const EdgeInsets.symmetric(vertical: 17.0, horizontal: 12),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 17.0, horizontal: 12),
               decoration: BoxDecoration(
                 color: isEnabled ? Colors.white : Colors.grey[200],
                 borderRadius: BorderRadius.circular(7.0),
@@ -186,7 +187,8 @@ class NewAssessmentBody extends StatelessWidget {
             TextEditingController controller =
                 TextEditingController(text: state.patientName);
             return Container(
-              padding: const EdgeInsets.symmetric(vertical: 17.0, horizontal: 12),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 17.0, horizontal: 12),
               decoration: BoxDecoration(
                 color: isEnabled ? Colors.white : Colors.grey[200],
                 borderRadius: BorderRadius.circular(7.0),

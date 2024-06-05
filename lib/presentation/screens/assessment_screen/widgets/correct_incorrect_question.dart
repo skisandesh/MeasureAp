@@ -6,7 +6,8 @@ class CorrectIncorrectQuestion extends StatefulWidget {
   final CorrectIncorrectQuestionModel question;
   final ValueChanged<bool> onAnswer;
 
-  const CorrectIncorrectQuestion({super.key, 
+  const CorrectIncorrectQuestion({
+    super.key,
     required this.question,
     required this.onAnswer,
   });
@@ -46,6 +47,8 @@ class _CorrectIncorrectQuestionState extends State<CorrectIncorrectQuestion> {
               final isSelected = selectedIndex == index;
               return GestureDetector(
                 onTap: () {
+
+                  widget.onAnswer(widget.question.correctIndex == index);
                   setState(() {
                     selectedIndex = index;
                   });

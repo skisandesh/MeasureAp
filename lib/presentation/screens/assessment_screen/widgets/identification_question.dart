@@ -6,7 +6,7 @@ import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 
 class IdentificationQuestion extends StatefulWidget {
   final IdentificationQuestionModel question;
-  final ValueChanged<List<bool>> onAnswer;
+  final ValueChanged<bool> onAnswer;
 
   const IdentificationQuestion({super.key, 
     required this.question,
@@ -110,7 +110,7 @@ class _IdentificationQuestionState extends State<IdentificationQuestion> {
                       setState(() {
                         _switchValues[index] = value;
                       });
-                      // widget.onAnswer(_switchValues);
+                      widget.onAnswer(_switchValues[widget.question.correctIndex]);
                     },
                   ),
                 ],
