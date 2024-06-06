@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
-import 'package:measure_ap/data/models/questions.dart';
+import 'package:measure_ap/models/questions.dart';
 
 class RecallQuestion extends StatelessWidget {
   final RecallQuestionModel question;

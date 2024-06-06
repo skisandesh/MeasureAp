@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 
-import 'package:measure_ap/data/models/new_assessment.dart';
+import 'package:measure_ap/models/new_assessment.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 import 'package:measure_ap/presentation/widgets/shadow_container.dart';
 import 'package:measure_ap/utils/date_conversion.dart';

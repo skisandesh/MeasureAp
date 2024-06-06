@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:measure_ap/constants/export_constants.dart';
-import 'package:measure_ap/data/models/new_assessment.dart';
+import 'package:measure_ap/models/new_assessment.dart';
+import 'package:measure_ap/presentation/widgets/loading_widget.dart';
 import 'package:measure_ap/presentation/screens/new_assessment_screen/cubit/new_assessment_cubit.dart';
 import 'package:measure_ap/presentation/screens/new_assessment_screen/cubit/new_assessment_state.dart';
 import 'package:measure_ap/presentation/widgets/custom_app_bar.dart';
 import 'package:measure_ap/presentation/widgets/custom_button.dart';
-import 'package:measure_ap/utils/navigator_service.dart';
 
 class NewAssessmentScreen extends StatelessWidget {
   static Widget builder(BuildContext context) {
     final Assessment? assessment =
         ModalRoute.of(context)?.settings.arguments as Assessment?;
     return BlocProvider(
-      create: (context) => NewAssessmentCubit(assessment),
-      child: const NewAssessmentScreen(),
+      create: (context) => NewAssessmentCubit(assessment: assessment),
+      child: BlocBuilder<NewAssessmentCubit, NewAssessmentState>(
+        builder: (context, state) {
+          if (state.isLoading) {
+            return const LoadingWidget();
+          }
+          return const NewAssessmentScreen();
+        },
+      ),
     );
   }
 
@@ -51,7 +58,7 @@ class NewAssessmentBody extends StatelessWidget {
                   (value) => context
                       .read<NewAssessmentCubit>()
                       .setCognitiveStatus(value!),
-                  (state) => state.cognitiveStatus,
+                  (state) => state.assessment?.cognitiveStatus,
                   ['Cognition', 'Z00.00', 'Z01.89'],
                   isEnabled: true,
                 ),
@@ -65,9 +72,9 @@ class NewAssessmentBody extends StatelessWidget {
                       (value) => context
                           .read<NewAssessmentCubit>()
                           .setApplicableMeasures(value!),
-                      (state) => state.applicableMeasures,
+                      (state) => state.assessment?.applicableMeasures,
                       ['SLUMS', 'Physical Examination', 'Diagnostic Tests'],
-                      isEnabled: state.cognitiveStatus != null,
+                      isEnabled: state.assessment?.cognitiveStatus != null,
                     );
                   },
                 ),
@@ -81,7 +88,7 @@ class NewAssessmentBody extends StatelessWidget {
                       (value) => context
                           .read<NewAssessmentCubit>()
                           .setPatientName(value),
-                      isEnabled: state.applicableMeasures != null,
+                      isEnabled: state.assessment?.applicableMeasures != null,
                     );
                   },
                 ),
@@ -92,7 +99,7 @@ class NewAssessmentBody extends StatelessWidget {
             builder: (context, state) {
               return CustomButton(
                 onTap: state.isStartButtonEnabled
-                    ? () => NavigatorService.pushNamed("/loading")
+                    ? () => context.read<NewAssessmentCubit>().startAssessment()
                     : () {},
                 color: state.isStartButtonEnabled ? black600Color : Colors.grey,
                 hasShadow: state.isStartButtonEnabled ? true : false,
@@ -185,7 +192,7 @@ class NewAssessmentBody extends StatelessWidget {
         BlocBuilder<NewAssessmentCubit, NewAssessmentState>(
           builder: (context, state) {
             TextEditingController controller =
-                TextEditingController(text: state.patientName);
+                TextEditingController(text: state.assessment?.patientName);
             return Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 17.0, horizontal: 12),

@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
-import 'package:measure_ap/utils/navigator_service.dart';
 
-class LoadingScreen extends StatefulWidget {
+class LoadingWidget extends StatelessWidget {
   static Widget builder(BuildContext context) {
-    return const LoadingScreen();
+    return const LoadingWidget();
   }
 
-  const LoadingScreen({super.key});
+  const LoadingWidget({super.key});
 
-  @override
-  _LoadingScreenState createState() => _LoadingScreenState();
-}
 
-class _LoadingScreenState extends State<LoadingScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
-      NavigatorService.popAndPushNamed("/assessment");
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

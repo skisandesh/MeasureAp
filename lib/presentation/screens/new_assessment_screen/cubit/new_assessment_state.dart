@@ -1,28 +1,25 @@
+import 'package:measure_ap/models/new_assessment.dart';
 
 class NewAssessmentState {
-  final String? cognitiveStatus;
-  final String? applicableMeasures;
-  final String? patientName;
+  final BaseAssessment? assessment;
   final bool isStartButtonEnabled;
+  final bool isLoading;
 
   NewAssessmentState({
-    this.cognitiveStatus,
-    this.applicableMeasures,
-    this.patientName,
+    this.assessment,
     this.isStartButtonEnabled = false,
+    this.isLoading = false,
   });
 
   NewAssessmentState copyWith({
-    String? cognitiveStatus,
-    String? applicableMeasures,
-    String? patientName,
+    BaseAssessment? assessment,
     bool? isStartButtonEnabled,
+    bool? isLoading,
   }) {
     return NewAssessmentState(
-      cognitiveStatus: cognitiveStatus ?? this.cognitiveStatus,
-      applicableMeasures: applicableMeasures ?? this.applicableMeasures,
-      patientName: patientName ?? this.patientName,
+      assessment: assessment ?? this.assessment,
       isStartButtonEnabled: isStartButtonEnabled ?? this.isStartButtonEnabled,
+      isLoading: isLoading ?? this.isLoading,
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
-import 'package:measure_ap/data/models/questions.dart';
+import 'package:measure_ap/models/questions.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 
 class IdentificationQuestion extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:measure_ap/constants/export_constants.dart';
-import 'package:measure_ap/presentation/screens/assessment_screen/cubit/assessment_cubit.dart';
+import 'package:measure_ap/presentation/screens/assessment_screen/data/cubit/assessment_cubit.dart';
 
 class ConfirmResults extends StatelessWidget {
   const ConfirmResults({super.key});

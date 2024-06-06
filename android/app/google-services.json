@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "61158209026",
+    "project_id": "measureap-92fae",
+    "storage_bucket": "measureap-92fae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61158209026:android:8d6bf7116a8a175f0c591b",
+        "android_client_info": {
+          "package_name": "com.example.measure_ap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqZ0IQJMEePUVizW2n65eONuaALodsric"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61158209026:android:7a9f9f68ba9de7080c591b",
+        "android_client_info": {
+          "package_name": "com.sandesh.measure_ap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqZ0IQJMEePUVizW2n65eONuaALodsric"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

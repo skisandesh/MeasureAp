@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:measure_ap/constants/export_constants.dart';
-import 'package:measure_ap/data/models/questions.dart';
-import 'package:measure_ap/presentation/screens/assessment_screen/cubit/assessment_cubit.dart';
+import 'package:measure_ap/models/new_assessment.dart';
+import 'package:measure_ap/models/questions.dart';
+import 'package:measure_ap/presentation/screens/assessment_screen/data/cubit/assessment_cubit.dart';
 import 'package:measure_ap/presentation/screens/assessment_screen/widgets/confirm_result.dart';
 import 'package:measure_ap/presentation/screens/assessment_screen/widgets/correct_incorrect_question.dart';
 import 'package:measure_ap/presentation/screens/assessment_screen/widgets/identification_question.dart';
@@ -16,8 +17,11 @@ class AssessmentScreen extends StatelessWidget {
   const AssessmentScreen({super.key});
 
   static Widget builder(BuildContext context) {
+    final  BaseAssessment assessment =
+        ModalRoute.of(context)?.settings.arguments as BaseAssessment;
     return BlocProvider(
-      create: (context) => AssessmentCubit(dummyQuestions),
+      
+      create: (context) => AssessmentCubit(dummyQuestions, assessment),
       child: const AssessmentScreen(),
     );
   }
