@@ -9,15 +9,16 @@ class AssessmentCubit extends Cubit<AssessmentState> {
   final BaseAssessment assessment;
   AssessmentCubit(List<Question> questions, this.assessment)
       : super(AssessmentState(
-            questions: questions,
-            answers: List.filled(questions.length, false)));
+          questions: questions,
+        ));
 
-  void answerQuestion(dynamic answer) {
-    final currentIndex = state.currentIndex;
-    List<bool> answers = [...state.answers];
-    answers[currentIndex] = answer;
-    emit(state.copyWith(answers: answers));
-  }
+  void answerQuestion(bool answer) {
+  final currentIndex = state.currentIndex;
+  Map<String, bool> updatedAnswers = Map<String, bool>.from(state.answers);
+  updatedAnswers["Question ${currentIndex + 1}"] = answer;
+  emit(state.copyWith(answers: updatedAnswers));
+}
+
 
   void nextQuestion() {
     if (state.currentIndex < state.questions.length - 1) {
@@ -41,10 +42,8 @@ class AssessmentCubit extends Cubit<AssessmentState> {
   void finishAssessment() async {
     final AssessmentRepository assessmentRepository = AssessmentRepository();
     try {
-      final Map<String, bool> answersMap = state.answers
-          .asMap()
-          .map((index, value) => MapEntry("Question ${index+1}", value));
-      await assessmentRepository.addAssessmentResult(assessment, answersMap);
+    
+      await assessmentRepository.addAssessmentResult(assessment, state.answers);
     } catch (e) {
       print(e);
     }

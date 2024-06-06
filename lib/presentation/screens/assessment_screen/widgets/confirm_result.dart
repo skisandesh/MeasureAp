@@ -11,45 +11,44 @@ class ConfirmResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.all(16.0.adaptSize),
+      padding: EdgeInsets.all(16.0.adaptSize),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Confirm the results', style: boldType24),
-           SizedBox(height: 20.v),
+          SizedBox(height: 20.v),
           Container(
-            padding:  EdgeInsets.all(16.adaptSize),
+            padding: EdgeInsets.all(16.adaptSize),
             decoration: BoxDecoration(
                 border: Border.all(color: greyBorderColor),
                 borderRadius: BorderRadius.circular(15.adaptSize),
                 color: Colors.white),
             child: Column(
               children: [
-                 SizedBox(
+                SizedBox(
                   height: 32.v,
                 ),
                 const CircularProgressWidget(),
-                 SizedBox(
+                SizedBox(
                   height: 16.v,
                 ),
                 const Divider(),
-                 SizedBox(
+                SizedBox(
                   height: 8.v,
                 ),
                 BlocBuilder<AssessmentCubit, AssessmentState>(
                   builder: (context, state) {
                     return Column(
-                      children:
-                          state.answers.asMap().entries.map<Widget>((entry) {
-                        int index = entry.key;
+                      children: state.answers.entries.map<Widget>((entry) {
                         bool isCorrect = entry.value;
+                        String question = entry.key;
                         return Padding(
-                          padding:  EdgeInsets.symmetric(vertical: 8.0.v),
+                          padding: EdgeInsets.symmetric(vertical: 8.0.v),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Question ${index + 1}',
+                                question,
                                 style: mediumTypeBlack14,
                               ),
                               Text(
@@ -81,7 +80,7 @@ class CircularProgressWidget extends StatelessWidget {
       builder: (context, state) {
         final totalQuestion = state.questions.length;
         final totalCorrect =
-            state.answers.where((answer) => answer == true).length;
+            state.answers.values.where((value) => value == true).length;
 
         return Stack(
           alignment: Alignment.center,
@@ -101,7 +100,7 @@ class CircularProgressWidget extends StatelessWidget {
               width: 135.adaptSize,
               height: 135.adaptSize,
               child: CircularProgressIndicator(
-                value: totalCorrect / totalQuestion,
+                value: totalCorrect / 18,
                 strokeWidth: 16.h,
                 backgroundColor: greyBorderColor,
                 valueColor:
@@ -111,8 +110,8 @@ class CircularProgressWidget extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  Text("$totalCorrect", style: largeType36),
-                  Text("/$totalQuestion", style: smallType12),
+                  Text("${totalCorrect * 3}", style: largeType36),
+                  Text("/18", style: smallType12),
                 ],
               ),
             ),
