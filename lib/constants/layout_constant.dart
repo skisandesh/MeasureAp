@@ -1,3 +1,4 @@
 import 'package:flutter/material.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
-const kDefaultPadding = EdgeInsets.all(20);
+final kDefaultPadding = EdgeInsets.all(20.h);

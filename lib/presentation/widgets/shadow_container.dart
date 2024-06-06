@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class ShadowContainer extends StatelessWidget {
   final Widget child;
@@ -7,8 +8,8 @@ class ShadowContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
-      margin: const EdgeInsets.only(bottom: 12),
+      padding:  EdgeInsets.all(12.adaptSize),
+      margin:  EdgeInsets.only(bottom: 12.v),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),

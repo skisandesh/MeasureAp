@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 import 'package:measure_ap/utils/date_conversion.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({super.key});
@@ -20,7 +21,7 @@ class TopBar extends StatelessWidget {
                 CustomImageView(
                   imagePath: AssetsConstant.profilePic,
                 ),
-                const SizedBox(width: 16),
+                 SizedBox(width: 16.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

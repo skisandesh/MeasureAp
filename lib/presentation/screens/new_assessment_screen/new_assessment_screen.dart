@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:measure_ap/constants/color_constant.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/models/new_assessment.dart';
 import 'package:measure_ap/presentation/widgets/loading_widget.dart';
@@ -7,6 +8,7 @@ import 'package:measure_ap/presentation/screens/new_assessment_screen/cubit/new_
 import 'package:measure_ap/presentation/screens/new_assessment_screen/cubit/new_assessment_state.dart';
 import 'package:measure_ap/presentation/widgets/custom_app_bar.dart';
 import 'package:measure_ap/presentation/widgets/custom_button.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class NewAssessmentScreen extends StatelessWidget {
   static Widget builder(BuildContext context) {
@@ -44,7 +46,7 @@ class NewAssessmentBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding:  EdgeInsets.all(16.0.adaptSize),
       child: Column(
         children: [
           Expanded(
@@ -62,7 +64,7 @@ class NewAssessmentBody extends StatelessWidget {
                   ['Cognition', 'Z00.00', 'Z01.89'],
                   isEnabled: true,
                 ),
-                const SizedBox(height: 33),
+                 SizedBox(height: 33.v),
                 BlocBuilder<NewAssessmentCubit, NewAssessmentState>(
                   builder: (context, state) {
                     return _dropDownSection(
@@ -78,7 +80,7 @@ class NewAssessmentBody extends StatelessWidget {
                     );
                   },
                 ),
-                const SizedBox(height: 33),
+                 SizedBox(height: 33.v),
                 BlocBuilder<NewAssessmentCubit, NewAssessmentState>(
                   builder: (context, state) {
                     return _textFieldSection(
@@ -133,7 +135,7 @@ class NewAssessmentBody extends StatelessWidget {
           title,
           style: mediumType16,
         ),
-        const SizedBox(height: 4),
+         SizedBox(height: 4.v),
         BlocBuilder<NewAssessmentCubit, NewAssessmentState>(
           builder: (context, state) {
             String? selectedValue = valueSelector(state);
@@ -142,7 +144,7 @@ class NewAssessmentBody extends StatelessWidget {
             }
             return Container(
               padding:
-                  const EdgeInsets.symmetric(vertical: 17.0, horizontal: 12),
+                   EdgeInsets.symmetric(vertical: 17.0.v, horizontal: 12.h),
               decoration: BoxDecoration(
                 color: isEnabled ? Colors.white : Colors.grey[200],
                 borderRadius: BorderRadius.circular(7.0),

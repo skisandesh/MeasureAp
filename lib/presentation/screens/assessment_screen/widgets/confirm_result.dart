@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:measure_ap/constants/color_constant.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/presentation/screens/assessment_screen/data/cubit/assessment_cubit.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class ConfirmResults extends StatelessWidget {
   const ConfirmResults({super.key});
@@ -9,30 +11,30 @@ class ConfirmResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding:  EdgeInsets.all(16.0.adaptSize),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Confirm the results', style: boldType24),
-          const SizedBox(height: 20),
+           SizedBox(height: 20.v),
           Container(
-            padding: const EdgeInsets.all(16),
+            padding:  EdgeInsets.all(16.adaptSize),
             decoration: BoxDecoration(
                 border: Border.all(color: greyBorderColor),
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(15.adaptSize),
                 color: Colors.white),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 32,
+                 SizedBox(
+                  height: 32.v,
                 ),
                 const CircularProgressWidget(),
-                const SizedBox(
-                  height: 16,
+                 SizedBox(
+                  height: 16.v,
                 ),
                 const Divider(),
-                const SizedBox(
-                  height: 8,
+                 SizedBox(
+                  height: 8.v,
                 ),
                 BlocBuilder<AssessmentCubit, AssessmentState>(
                   builder: (context, state) {
@@ -42,7 +44,7 @@ class ConfirmResults extends StatelessWidget {
                         int index = entry.key;
                         bool isCorrect = entry.value;
                         return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          padding:  EdgeInsets.symmetric(vertical: 8.0.v),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -85,8 +87,8 @@ class CircularProgressWidget extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Container(
-              width: 135,
-              height: 135,
+              width: 135.adaptSize,
+              height: 135.adaptSize,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
@@ -96,11 +98,11 @@ class CircularProgressWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 135,
-              height: 135,
+              width: 135.adaptSize,
+              height: 135.adaptSize,
               child: CircularProgressIndicator(
                 value: totalCorrect / totalQuestion,
-                strokeWidth: 16,
+                strokeWidth: 16.h,
                 backgroundColor: greyBorderColor,
                 valueColor:
                     const AlwaysStoppedAnimation<Color>(circularProgressColor),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:measure_ap/constants/color_constant.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/models/questions.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class MultipleCorrectIncorrectQuestion extends StatefulWidget {
   final MultipleCorrectIncorrectQuestionModel question;
@@ -31,10 +33,10 @@ class _MultipleCorrectIncorrectQuestionState
           textAlign: TextAlign.center,
         ),
         Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 34.0, vertical: 14),
+            padding:  EdgeInsets.symmetric(horizontal: 34.0.h, vertical: 14.v),
             child: ShowMoreText(text: widget.question.questionDescription)),
-        const SizedBox(
-          height: 20,
+         SizedBox(
+          height: 20.v,
         ),
         ListView.builder(
             shrinkWrap: true,
@@ -58,8 +60,8 @@ class _MultipleCorrectIncorrectQuestionState
                           widget.question.correctIndexList.contains(element)));
                 },
                 child: Container(
-                  padding: const EdgeInsets.all(16),
-                  margin: const EdgeInsets.only(bottom: 13),
+                  padding:  EdgeInsets.all(16.adaptSize),
+                  margin:  EdgeInsets.only(bottom: 13.v),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(13),
                       border: Border.all(
@@ -70,8 +72,8 @@ class _MultipleCorrectIncorrectQuestionState
                       CircularCheckContainer(
                         isSelected: isSelected,
                       ),
-                      const SizedBox(
-                        width: 12,
+                       SizedBox(
+                        width: 12.h,
                       ),
                       Text(
                         option,
@@ -94,8 +96,8 @@ class CircularCheckContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 32, // Set the width of the circular container
-      height: 32, // Set the height of the circular container
+      width: 32.adaptSize, // Set the width of the circular container
+      height: 32.adaptSize, // Set the height of the circular container
       decoration: BoxDecoration(
         border: Border.all(color: isSelected ? orange500 : greyBorderColor),
         color: isSelected

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:measure_ap/constants/color_constant.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/utils/size.config.dart';
 
@@ -10,7 +11,7 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
+      padding:  EdgeInsets.only(bottom: 12.0.v),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

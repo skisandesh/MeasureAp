@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:measure_ap/constants/color_constant.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 
 import 'package:measure_ap/models/new_assessment.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 import 'package:measure_ap/presentation/widgets/shadow_container.dart';
 import 'package:measure_ap/utils/date_conversion.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 import 'section_header.dart';
 
@@ -45,10 +47,10 @@ class HistoryCard extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                padding:  EdgeInsets.symmetric(horizontal: 8.h, vertical: 12.v),
                 decoration: BoxDecoration(
                     color: const Color(0xFF4D6FE7).withOpacity(0.12),
-                    borderRadius: BorderRadius.circular(30)),
+                    borderRadius: BorderRadius.circular(30.adaptSize)),
                 child: Row(
                   children: [
                     Text(
@@ -64,8 +66,8 @@ class HistoryCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              width: 24,
+             SizedBox(
+              width: 24.h,
             ),
             CustomImageView(
               imagePath: AssetsConstant.circleArrowIcon,
@@ -73,8 +75,8 @@ class HistoryCard extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 28,
+         SizedBox(
+          height: 28.v,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,8 +121,8 @@ class HistoryCard extends StatelessWidget {
   Container ellipseContainer(Color color) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 8),
-      width: 5,
-      height: 5,
+      width: 5.adaptSize,
+      height: 5.adaptSize,
       decoration: BoxDecoration(
         color: color, // Replace with desired color
         shape: BoxShape.circle, // Makes the container circular

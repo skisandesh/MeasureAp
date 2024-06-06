@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
 import 'package:measure_ap/utils/navigator_service.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -28,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: GestureDetector(
         onTap: () => NavigatorService.goBack(),
         child: Padding(
-          padding: const EdgeInsets.only(left: 28.0),
+          padding:  EdgeInsets.only(left: 28.0.h),
           child: CustomImageView(
             height: 24,
             width: 24,
@@ -39,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: actions
           ? [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding:  EdgeInsets.symmetric(horizontal: 20.0.h),
                 child: CustomImageView(
                   imagePath: AssetsConstant.moreIcon,
                 ),
@@ -55,20 +56,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       );
 }
 
-
-// AppBar(
-//         backgroundColor: Colors.transparent,
-//         title: Text(
-//           "Assessment",
-//           style: semiBoldType16,
-//         ),
-//         centerTitle: true,
-//         actions: [
-//           Padding(
-//             padding: const EdgeInsets.symmetric(horizontal: 20.0),
-//             child: CustomImageView(
-//               imagePath: AssetsConstant.moreIcon,
-//             ),
-//           )
-//         ],
-//       )

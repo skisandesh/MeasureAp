@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:measure_ap/constants/color_constant.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/models/questions.dart';
 import 'package:measure_ap/presentation/widgets/cutom_image.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class IdentificationQuestion extends StatefulWidget {
   final IdentificationQuestionModel question;
@@ -36,7 +38,7 @@ class _IdentificationQuestionState extends State<IdentificationQuestion> {
           textAlign: TextAlign.center,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34.0, vertical: 14),
+          padding:  EdgeInsets.symmetric(horizontal: 34.0.h, vertical: 14.v),
           child: Text(
             widget.question.questionDescription,
             style: mediumType14,
@@ -51,7 +53,7 @@ class _IdentificationQuestionState extends State<IdentificationQuestion> {
           itemBuilder: (ctx, index) {
             final option = widget.question.options[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              padding:  EdgeInsets.symmetric(vertical: 16.0.v),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -66,7 +68,7 @@ class _IdentificationQuestionState extends State<IdentificationQuestion> {
                                 backgroundColor: Colors.transparent,
                                 elevation: 0,
                                 child: Container(
-                                  padding: const EdgeInsets.all(86),
+                                  padding:  EdgeInsets.all(86.adaptSize),
                                   decoration: const BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle,
@@ -80,7 +82,7 @@ class _IdentificationQuestionState extends State<IdentificationQuestion> {
                           );
                         },
                         child: Container(
-                          padding: const EdgeInsets.all(18),
+                          padding:  EdgeInsets.all(18.adaptSize),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
@@ -89,13 +91,13 @@ class _IdentificationQuestionState extends State<IdentificationQuestion> {
                             ),
                           ),
                           child: CustomImageView(
-                            height: 24,
+                            height: 24.adaptSize,
                             imagePath: option.imgPath,
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        width: 12,
+                       SizedBox(
+                        width: 12.h,
                       ),
                       Text(
                         option.option,

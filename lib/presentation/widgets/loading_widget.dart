@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:measure_ap/constants/export_constants.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class LoadingWidget extends StatelessWidget {
   static Widget builder(BuildContext context) {
@@ -17,11 +18,11 @@ class LoadingWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-                height: 80,
-                width: 80,
+             SizedBox(
+                height: 80.adaptSize,
+                width: 80.adaptSize,
                 child: CircularProgressIndicator(
-                  strokeWidth: 20,
+                  strokeWidth: 20.adaptSize,
                 )),
             const SizedBox(
               height: 24,

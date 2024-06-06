@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:measure_ap/constants/color_constant.dart';
 import 'package:measure_ap/constants/export_constants.dart';
 import 'package:measure_ap/models/questions.dart';
+import 'package:measure_ap/utils/size.config.dart';
 
 class CorrectIncorrectQuestion extends StatefulWidget {
   final CorrectIncorrectQuestionModel question;
@@ -29,15 +31,15 @@ class _CorrectIncorrectQuestionState extends State<CorrectIncorrectQuestion> {
           textAlign: TextAlign.center,
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 34.0, vertical: 14),
+          padding:  EdgeInsets.symmetric(horizontal: 34.0.h, vertical: 14.v),
           child: Text(
             widget.question.questionDescription,
             style: mediumType14,
             textAlign: TextAlign.center,
           ),
         ),
-        const SizedBox(
-          height: 20,
+         SizedBox(
+          height: 20.v,
         ),
         ListView.builder(
             shrinkWrap: true,
@@ -55,7 +57,7 @@ class _CorrectIncorrectQuestionState extends State<CorrectIncorrectQuestion> {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(16),
-                  margin: const EdgeInsets.only(bottom: 13),
+                  margin:  EdgeInsets.only(bottom: 13.v),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(13),
                       border: Border.all(

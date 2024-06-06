@@ -4,7 +4,7 @@ import 'package:measure_ap/presentation/screens/home_screen/home_screen.dart';
 import 'package:measure_ap/presentation/widgets/custom_botton_bar.dart';
 import 'package:measure_ap/routes/app_routes.dart';
 
-// ignore_for_file: must_be_immutable
+
 class HomeContainerScreen extends StatefulWidget {
   const HomeContainerScreen({super.key});
 
@@ -61,14 +61,7 @@ class _HomeContainerScreenState extends State<HomeContainerScreen> {
     switch (currentRoute) {
       case AppRoutes.homeScreen:
         return HomeScreen.builder(context);
-      // case AppRoutes.practiceScreen:
-      //   return PracticeScreen.builder(context);
-      // case AppRoutes.flashcardScreen:
-      //   return FlashcardScreen.builder(context);
-      // case AppRoutes.translationScreen:
-      //   return TranslationScreen.builder(context);
-      // case AppRoutes.profileScreen:
-      //   return ProfileScreen.builder(context);
+
       default:
         return const DefaultWidget();
     }
